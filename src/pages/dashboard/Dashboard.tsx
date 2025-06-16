@@ -92,61 +92,74 @@ const Dashboard: React.FC = () => {
     const Sidebar = () => (
         <div className={`${styles.sidebar} ${isSidebarOpen ? styles.open : styles.closed}`}>
             <div className={styles.sidebarHeader}>
-                <h2>Go Out! Business</h2>
+                {isSidebarOpen && <h2>Go Out! Business</h2>}
                 <button
                     className={styles.sidebarToggle}
                     onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                    title={isSidebarOpen ? "Collapse sidebar" : "Expand sidebar"}
                 >
-                    {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+                    {isSidebarOpen ? (
+                        // Back/Collapse icon when sidebar is open
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                    ) : (
+                        // Menu/Expand icon when sidebar is closed
+                        <Menu size={20} />
+                    )}
                 </button>
             </div>
 
-            {isSidebarOpen && (
-                <nav className={styles.sidebarNav}>
-                    <button
-                        className={`${styles.navItem} ${activeTab === 'analytics' ? styles.active : ''}`}
-                        onClick={() => setActiveTab('analytics')}
-                    >
-                        <BarChart3 size={20} />
-                        Analytics
-                    </button>
-                    <button
-                        className={`${styles.navItem} ${activeTab === 'customers' ? styles.active : ''}`}
-                        onClick={() => setActiveTab('customers')}
-                    >
-                        <Users size={20} />
-                        Customers
-                    </button>
-                    <button
-                        className={`${styles.navItem} ${activeTab === 'stamps' ? styles.active : ''}`}
-                        onClick={() => setActiveTab('stamps')}
-                    >
-                        <Gift size={20} />
-                        Stamps & Rewards
-                    </button>
-                    <button
-                        className={`${styles.navItem} ${activeTab === 'promotions' ? styles.active : ''}`}
-                        onClick={() => setActiveTab('promotions')}
-                    >
-                        <MessageSquare size={20} />
-                        Promotions
-                    </button>
-                    <button
-                        className={`${styles.navItem} ${activeTab === 'customization' ? styles.active : ''}`}
-                        onClick={() => setActiveTab('customization')}
-                    >
-                        <Palette size={20} />
-                        Branding
-                    </button>
-                    <button
-                        className={`${styles.navItem} ${activeTab === 'settings' ? styles.active : ''}`}
-                        onClick={() => setActiveTab('settings')}
-                    >
-                        <Settings size={20} />
-                        Settings
-                    </button>
-                </nav>
-            )}
+            <nav className={styles.sidebarNav}>
+                <button
+                    className={`${styles.navItem} ${activeTab === 'analytics' ? styles.active : ''}`}
+                    onClick={() => setActiveTab('analytics')}
+                    title="Analytics"
+                >
+                    <BarChart3 size={20} />
+                    {isSidebarOpen && <span>Analytics</span>}
+                </button>
+                <button
+                    className={`${styles.navItem} ${activeTab === 'customers' ? styles.active : ''}`}
+                    onClick={() => setActiveTab('customers')}
+                    title="Customers"
+                >
+                    <Users size={20} />
+                    {isSidebarOpen && <span>Customers</span>}
+                </button>
+                <button
+                    className={`${styles.navItem} ${activeTab === 'stamps' ? styles.active : ''}`}
+                    onClick={() => setActiveTab('stamps')}
+                    title="Stamps & Rewards"
+                >
+                    <Gift size={20} />
+                    {isSidebarOpen && <span>Stamps & Rewards</span>}
+                </button>
+                <button
+                    className={`${styles.navItem} ${activeTab === 'promotions' ? styles.active : ''}`}
+                    onClick={() => setActiveTab('promotions')}
+                    title="Promotions"
+                >
+                    <MessageSquare size={20} />
+                    {isSidebarOpen && <span>Promotions</span>}
+                </button>
+                <button
+                    className={`${styles.navItem} ${activeTab === 'customization' ? styles.active : ''}`}
+                    onClick={() => setActiveTab('customization')}
+                    title="Branding"
+                >
+                    <Palette size={20} />
+                    {isSidebarOpen && <span>Branding</span>}
+                </button>
+                <button
+                    className={`${styles.navItem} ${activeTab === 'settings' ? styles.active : ''}`}
+                    onClick={() => setActiveTab('settings')}
+                    title="Settings"
+                >
+                    <Settings size={20} />
+                    {isSidebarOpen && <span>Settings</span>}
+                </button>
+            </nav>
         </div>
     );
 
