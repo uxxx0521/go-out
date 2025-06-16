@@ -150,6 +150,8 @@ const Dashboard: React.FC = () => {
         </div>
     );
 
+    // Replace your AnalyticsTab component with this fixed version:
+
     const AnalyticsTab = () => (
         <div className={styles.analyticsTab}>
             <div className={styles.tabHeader}>
@@ -168,16 +170,16 @@ const Dashboard: React.FC = () => {
                     </div>
                     <div className={styles.metricValues}>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.totalStamps.today}</span>
-                            <span className="label">Today</span>
+                            <span className={styles.value}>{mockAnalytics.totalStamps.today}</span>
+                            <span className={styles.label}>Today</span>
                         </div>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.totalStamps.week}</span>
-                            <span className="label">This Week</span>
+                            <span className={styles.value}>{mockAnalytics.totalStamps.week}</span>
+                            <span className={styles.label}>This Week</span>
                         </div>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.totalStamps.month}</span>
-                            <span className="label">This Month</span>
+                            <span className={styles.value}>{mockAnalytics.totalStamps.month}</span>
+                            <span className={styles.label}>This Month</span>
                         </div>
                     </div>
                 </div>
@@ -189,16 +191,16 @@ const Dashboard: React.FC = () => {
                     </div>
                     <div className={styles.metricValues}>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.rewardsRedeemed.today}</span>
-                            <span className="label">Today</span>
+                            <span className={styles.value}>{mockAnalytics.rewardsRedeemed.today}</span>
+                            <span className={styles.label}>Today</span>
                         </div>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.rewardsRedeemed.week}</span>
-                            <span className="label">This Week</span>
+                            <span className={styles.value}>{mockAnalytics.rewardsRedeemed.week}</span>
+                            <span className={styles.label}>This Week</span>
                         </div>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.rewardsRedeemed.month}</span>
-                            <span className="label">This Month</span>
+                            <span className={styles.value}>{mockAnalytics.rewardsRedeemed.month}</span>
+                            <span className={styles.label}>This Month</span>
                         </div>
                     </div>
                 </div>
@@ -210,16 +212,16 @@ const Dashboard: React.FC = () => {
                     </div>
                     <div className={styles.metricValues}>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.appUsers.total}</span>
-                            <span className="label">Total Users</span>
+                            <span className={styles.value}>{mockAnalytics.appUsers.total}</span>
+                            <span className={styles.label}>Total Users</span>
                         </div>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.appUsers.newThisWeek}</span>
-                            <span className="label">New This Week</span>
+                            <span className={styles.value}>{mockAnalytics.appUsers.newThisWeek}</span>
+                            <span className={styles.label}>New This Week</span>
                         </div>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.retentionRate}%</span>
-                            <span className="label">Retention Rate</span>
+                            <span className={styles.value}>{mockAnalytics.retentionRate}%</span>
+                            <span className={styles.label}>Retention Rate</span>
                         </div>
                     </div>
                 </div>
@@ -231,16 +233,16 @@ const Dashboard: React.FC = () => {
                     </div>
                     <div className={styles.metricValues}>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.campaignPerformance.sent}</span>
-                            <span className="label">Messages Sent</span>
+                            <span className={styles.value}>{mockAnalytics.campaignPerformance.sent}</span>
+                            <span className={styles.label}>Messages Sent</span>
                         </div>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.campaignPerformance.opened}</span>
-                            <span className="label">Opened</span>
+                            <span className={styles.value}>{mockAnalytics.campaignPerformance.opened}</span>
+                            <span className={styles.label}>Opened</span>
                         </div>
                         <div className={styles.metricValue}>
-                            <span className="value">{mockAnalytics.campaignPerformance.redeemed}</span>
-                            <span className="label">Redeemed</span>
+                            <span className={styles.value}>{mockAnalytics.campaignPerformance.redeemed}</span>
+                            <span className={styles.label}>Redeemed</span>
                         </div>
                     </div>
                 </div>
