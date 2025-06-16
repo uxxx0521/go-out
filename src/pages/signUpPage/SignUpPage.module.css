@@ -1,0 +1,754 @@
+/* SignUpPage.module.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Main container */
+.signupPage {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.headerText {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Progress Bar */
+.progressContainer {
+  margin-bottom: 3rem;
+}
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.progressStep {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.progressStep:last-child {
+  flex: 0;
+}
+
+.progressCircle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.progressCircle.progressActive {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.progressLine {
+  flex: 1;
+  height: 2px;
+  background-color: #e5e7eb;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  margin: 0 0.5rem;
+}
+
+.progressLine.progressActive {
+  background-color: #8b5cf6;
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.progressLabels span {
+  text-align: center;
+  flex: 1;
+}
+
+.progressLabels span:first-child {
+  text-align: left;
+}
+
+.progressLabels span:last-child {
+  text-align: right;
+}
+
+.progressLabelActive {
+  color: #8b5cf6;
+  font-weight: 600;
+}
+
+/* Form Container */
+.formContainer {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.stepContent {
+  margin-bottom: 2rem;
+}
+
+.stepTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.stepSubtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Form Grid */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .formGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+/* Form Elements */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.input,
+.select,
+.timeInput {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.input:focus,
+.select:focus,
+.timeInput:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.inputError {
+  border-color: #ef4444;
+}
+
+.inputError:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.select {
+  cursor: pointer;
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Password Field */
+.passwordField {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordField .input {
+  padding-right: 3rem;
+  flex: 1;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: #6b7280;
+  transition: color 0.3s ease;
+}
+
+.passwordToggle:hover {
+  color: #374151;
+}
+
+/* Password Requirements */
+.passwordRequirements {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  border-left: 4px solid #e5e7eb;
+}
+
+.passwordRequirements p {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.5rem 0;
+}
+
+.passwordRequirements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.passwordRequirements li {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.passwordRequirements li::before {
+  content: '○';
+  color: #d1d5db;
+  font-weight: bold;
+}
+
+.requirementMet {
+  color: #10b981 !important;
+}
+
+.requirementMet::before {
+  content: '✓' !important;
+  color: #10b981 !important;
+}
+
+/* Auth Alternative */
+.authAlternative {
+  margin-top: 2rem;
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e5e7eb;
+}
+
+.divider span {
+  background-color: white;
+  padding: 0 1rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.socialButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: white;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.socialButton:hover {
+  border-color: #d1d5db;
+  background-color: #f9fafb;
+}
+
+.socialIcon {
+  font-size: 1.25rem;
+}
+
+/* Business Hours */
+.businessHours {
+  margin-bottom: 1.5rem;
+}
+
+.dayRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  background-color: #fafafa;
+}
+
+.dayToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 120px;
+}
+
+.dayLabel {
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+}
+
+.timeInputs {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.timeInput {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  min-width: 120px;
+}
+
+.timeSeparator {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.closedLabel {
+  color: #6b7280;
+  font-style: italic;
+  padding-right: 1rem;
+}
+
+.hoursNote {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.hoursNote p {
+  color: #0369a1;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Review Sections */
+.reviewSections {
+  margin-bottom: 2rem;
+}
+
+.reviewSection {
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #8b5cf6;
+}
+
+.reviewSectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.reviewItem {
+  color: #374151;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.hoursReview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.hourItem {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
+}
+
+.dayName {
+  font-weight: 600;
+  color: #374151;
+}
+
+.dayHours {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Checkboxes */
+.checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: #8b5cf6;
+  cursor: pointer;
+}
+
+.checkboxError {
+  outline: 2px solid #ef4444;
+  outline-offset: 2px;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.checkboxLabel {
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.agreements {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Links */
+.link {
+  background: none;
+  border: none;
+  color: #8b5cf6;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.link:hover {
+  color: #7c3aed;
+  text-decoration: underline;
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+}
+
+.primaryButton {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.primaryButton:hover:not(:disabled) {
+  background-color: #7c3aed;
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondaryButton {
+  background-color: white;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+}
+
+.secondaryButton:hover:not(:disabled) {
+  border-color: #d1d5db;
+  background-color: #f9fafb;
+}
+
+.secondaryButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading Spinner */
+.spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signupPage {
+    padding: 1rem 0;
+  }
+  
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .formContainer {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .stepTitle {
+    font-size: 1.5rem;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .progressBar {
+    padding: 0 1rem;
+  }
+  
+  .progressCircle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+  
+  .progressLine {
+    width: 2rem;
+  }
+  
+  .progressLabels {
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+  }
+  
+  .dayRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .timeInputs {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .socialButtons {
+    flex-direction: column;
+  }
+  
+  .actions {
+    flex-direction: column-reverse;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hoursReview {
+    grid-template-columns: 1fr;
+  }
+  
+  .hourItem {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .reviewSection {
+    padding: 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for accessibility */
+.input:focus,
+.select:focus,
+.timeInput:focus,
+.checkbox:focus,
+.primaryButton:focus,
+.secondaryButton:focus,
+.socialButton:focus {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .progressCircle.progressActive {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .primaryButton {
+    background-color: #000;
+    border: 2px solid #000;
+  }
+  
+  .link {
+    color: #000;
+    text-decoration: underline;
+  }
+}

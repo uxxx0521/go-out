@@ -1,0 +1,1281 @@
+/* Dashboard.module.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .dashboardContainer {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    background: white;
+    border-right: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 100;
+  }
+  
+  .sidebar.open {
+    width: 280px;
+  }
+  
+  .sidebar.closed {
+    width: 80px;
+  }
+  
+  .sidebarHeader {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .sidebarHeader h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    white-space: nowrap;
+  }
+  
+  .sidebarToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: #64748b;
+    transition: all 0.2s;
+  }
+  
+  .sidebarToggle:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+  }
+  
+  .sidebarNav {
+    padding: 1rem 0;
+  }
+  
+  .navItem {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: none;
+    color: #64748b;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s;
+    text-align: left;
+  }
+  
+  .navItem:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+  }
+  
+  .navItem.active {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border-right: 3px solid #2563eb;
+  }
+  
+  /* Main Content Styles */
+  .mainContent {
+    flex: 1;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    max-width: calc(100vw - 280px);
+  }
+  
+  .mainContent.expanded {
+    max-width: calc(100vw - 80px);
+  }
+  
+  .tabHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .tabHeader h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+  
+  /* Button Styles */
+  .exportBtn, .createBtn, .previewBtn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .exportBtn:hover, .createBtn:hover, .previewBtn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+  }
+  
+  /* Analytics Tab Styles */
+  .metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .metricCard {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .metricHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .metricHeader h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .metricIcon {
+    color: #64748b;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .metricValues {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .metricValue {
+    text-align: center;
+  }
+  
+  .metricValue .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+  
+  .metricValue .label {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+  
+  .chartsSection {
+    margin-top: 2rem;
+  }
+  
+  .chartCard {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .chartCard h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .heatmap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .heatmapDay {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .dayLabel {
+    width: 40px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #64748b;
+  }
+  
+  .hourBlocks {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .hourBlock {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  
+  .hourBlock.intensity0 { background-color: #f1f5f9; }
+  .hourBlock.intensity1 { background-color: #bfdbfe; }
+  .hourBlock.intensity2 { background-color: #60a5fa; }
+  .hourBlock.intensity3 { background-color: #2563eb; }
+  
+  /* Customers Tab Styles */
+  .searchBar {
+    position: relative;
+    max-width: 400px;
+  }
+  
+  .searchBar svg {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+  }
+  
+  .searchBar input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    background: white;
+  }
+  
+  .searchBar input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  .customersList {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .customersHeader {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #f8fafc;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .customerRow {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    align-items: center;
+    transition: background-color 0.2s;
+  }
+  
+  .customerRow:hover {
+    background-color: #f8fafc;
+  }
+  
+  .customerInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .customerAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  
+  .customerName {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+  }
+  
+  .customerSignup {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+  
+  .customerContact {
+    font-size: 0.875rem;
+  }
+  
+  .customerEmail {
+    color: #64748b;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+  
+  .customerStamps, .customerRewards {
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .customerVisit {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+  
+  .customerActions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .actionBtn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .actionBtn.view {
+    background: #eff6ff;
+    color: #2563eb;
+  }
+  
+  .actionBtn.view:hover {
+    background: #dbeafe;
+  }
+  
+  .actionBtn.edit {
+    background: #f0fdf4;
+    color: #16a34a;
+  }
+  
+  .actionBtn.edit:hover {
+    background: #dcfce7;
+  }
+  
+  /* Stamps Tab Styles */
+  .stampsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .stampsCard {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .stampsCard h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+  }
+  
+  .ruleItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .ruleItem span {
+    font-size: 0.875rem;
+    color: #374151;
+    min-width: fit-content;
+  }
+  
+  .ruleInput, .ruleSelect {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    width: 80px;
+  }
+  
+  .ruleSelect {
+    width: 150px;
+  }
+  
+  .saveBtn, .grantBtn {
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 1rem;
+  }
+  
+  .saveBtn:hover, .grantBtn:hover {
+    background: #15803d;
+  }
+  
+  .manualGrant {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .searchCustomer {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .customerSearch {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .searchBtn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .searchBtn:hover {
+    background: #1d4ed8;
+  }
+  
+  .grantControls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .grantControls label {
+    font-size: 0.875rem;
+    color: #374151;
+  }
+  
+  .stampsInput {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Promotions Tab Styles */
+  .promotionsList {
+    display: grid;
+    gap: 1.5rem;
+  }
+  
+  .promotionCard {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .promoHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .promoHeader h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  .status.active {
+    background: #dcfce7;
+    color: #166534;
+  }
+  
+  .status.completed {
+    background: #f3f4f6;
+    color: #374151;
+  }
+  
+  .promoMessage {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .promoStats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stat {
+    text-align: center;
+  }
+  
+  .statValue {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+  
+  .statLabel {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+  }
+  
+  .promoActions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  /* Customization Tab Styles */
+  .customizationGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .customizationCard {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .customizationCard h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .formGroup label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+  
+  .formGroup input, .formGroup select, .formGroup textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: border-color 0.2s;
+  }
+  
+  .formGroup input:focus, .formGroup select:focus, .formGroup textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  .colorPicker {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .colorPicker input[type="color"] {
+    width: 50px;
+    height: 40px;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .fileUpload {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .uploadBtn {
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+  
+  .uploadBtn:hover {
+    background: #e5e7eb;
+  }
+  
+  .fileUpload span {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+  
+  /* Settings Tab Styles */
+  .settingsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .settingsCard {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  }
+  
+  .settingsCard h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Business Hours Styles */
+  .hoursGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hoursRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem;
+    background: #f8fafc;
+    border-radius: 0.5rem;
+    gap: 1rem;
+  }
+  
+  .dayLabel {
+    font-weight: 500;
+    color: #374151;
+    min-width: 80px;
+    font-size: 0.875rem;
+  }
+  
+  .hoursControls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  
+  .toggleSlider.small {
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+  }
+  
+  .toggleSlider.small::before {
+    width: 16px;
+    height: 16px;
+    top: 2px;
+    left: 2px;
+  }
+  
+  .toggleLabel input[type="checkbox"]:checked + .toggleSlider.small::before {
+    transform: translateX(16px);
+  }
+  
+  .timeInput {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    width: 90px;
+  }
+  
+  .timeInput:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  .hoursControls span {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+  
+  /* Holiday Schedule Styles */
+  .holidaySection {
+    margin-bottom: 1.5rem;
+  }
+  
+  .holidayForm {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .holidayDate, .holidayName {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+  }
+  
+  .holidayDate {
+    width: 140px;
+  }
+  
+  .holidayName {
+    flex: 1;
+    min-width: 180px;
+  }
+  
+  .holidayDate:focus, .holidayName:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+  
+  .addHolidayBtn {
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  
+  .addHolidayBtn:hover {
+    background: #15803d;
+  }
+  
+  .holidaysList {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .holidayItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: #f8fafc;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .holidayInfo {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .holidayDateDisplay {
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.875rem;
+    min-width: 80px;
+  }
+  
+  .holidayNameDisplay {
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+  
+  .removeHolidayBtn {
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    padding: 0.375rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .removeHolidayBtn:hover {
+    background: #fecaca;
+  }
+  
+  .securityOption, .notificationOption {
+    margin-bottom: 1rem;
+  }
+  
+  .toggleLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #374151;
+  }
+  
+  .toggleLabel input[type="checkbox"] {
+    display: none;
+  }
+  
+  .toggleSlider {
+    width: 44px;
+    height: 24px;
+    background: #d1d5db;
+    border-radius: 12px;
+    position: relative;
+    transition: background-color 0.2s;
+  }
+  
+  .toggleSlider::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+  }
+  
+  .toggleLabel input[type="checkbox"]:checked + .toggleSlider {
+    background: #2563eb;
+  }
+  
+  .toggleLabel input[type="checkbox"]:checked + .toggleSlider::before {
+    transform: translateX(20px);
+  }
+  
+  /* Modal Styles */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+  }
+  
+  .modal {
+    background: white;
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal.large {
+    max-width: 600px;
+  }
+  
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .modalHeader h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+  }
+  
+  .modalHeader button {
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .modalHeader button:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+  }
+  
+  .modalContent {
+    padding: 1.5rem;
+  }
+  
+  .customerProfile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .profileAvatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  
+  .profileInfo h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+  
+  .profileInfo p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .profileStats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .statBox {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    text-align: center;
+  }
+  
+  .statBox .statValue {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+  }
+  
+  .statBox .statLabel {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+  }
+  
+  .modalActions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+  }
+  
+  .cancelBtn {
+    background: #f3f4f6;
+    color: #374151;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .cancelBtn:hover {
+    background: #e5e7eb;
+  }
+  
+  .sendBtn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .sendBtn:hover {
+    background: #1d4ed8;
+  }
+  
+  /* QR Screen Preview */
+  .previewContainer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .qrScreenPreview {
+    width: 300px;
+    height: 500px;
+    border-radius: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 8px solid #1f2937;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .previewContent {
+    text-align: center;
+    padding: 2rem;
+    max-width: 100%;
+  }
+  
+  .previewGiftIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .previewContent h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .previewContent p {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+  
+  .previewDownloadQrs {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .previewDownloadQr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.75rem;
+    background: rgba(255,255,255,0.2);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(10px);
+  }
+  
+  .previewMiniQr {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+  
+  .previewDownloadQr span {
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .previewTapInstruction {
+    padding: 1rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  
+  .previewTapInstruction p {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .sidebar.open {
+      position: fixed;
+      height: 100vh;
+      z-index: 200;
+    }
+    
+    .mainContent {
+      max-width: 100vw;
+    }
+    
+    .mainContent.expanded {
+      max-width: 100vw;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .mainContent {
+      padding: 1rem;
+    }
+    
+    .tabHeader {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .metricsGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .customersHeader {
+      display: none;
+    }
+    
+    .customerRow {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      padding: 1rem;
+    }
+    
+    .customerActions {
+      justify-content: flex-end;
+    }
+    
+    .stampsGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .customizationGrid, .settingsGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .promoStats {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .profileStats {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar.open {
+      width: 100vw;
+    }
+    
+    .qrScreenPreview {
+      width: 250px;
+      height: 400px;
+    }
+    
+    .previewContent {
+      padding: 1.5rem;
+    }
+    
+    .previewContent h1 {
+      font-size: 1.25rem;
+    }
+    
+    .modal {
+      margin: 0.5rem;
+      max-width: calc(100vw - 1rem);
+    }
+    
+    .modalContent {
+      padding: 1rem;
+    }
+    
+    .customerProfile {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
